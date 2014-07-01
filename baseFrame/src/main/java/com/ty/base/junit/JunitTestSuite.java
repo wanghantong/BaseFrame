@@ -7,7 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import com.ty.base.tools.DateFormat;
 
 @RunWith(Suite.class)
-@SuiteClasses({DateFormat.class,TestIORead.class})
+@SuiteClasses({DateFormat.class,JunitTestExceptions.class})
 public class JunitTestSuite {
 	
 	
