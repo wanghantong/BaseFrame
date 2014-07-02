@@ -19,7 +19,6 @@ public class BaseSeleniumDependencyStructureTemplate {
 	@Test
 	public void testMethod() {
 		driver.get("http://blog.csdn.net/wanghantong");
-		
 	}
 
 	@BeforeMethod

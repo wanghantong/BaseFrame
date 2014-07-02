@@ -29,20 +29,21 @@ public class BaseSeleniumTemplate {
 
 	@BeforeClass
 	public void beforeClass() {
+		driver = new FirefoxDriver();
 	}
 
 	@AfterClass
 	public void afterClass() {
+		driver.quit();
 	}
 
 	@BeforeTest
 	public void beforeTest() {
-		driver = new FirefoxDriver();
+
 	}
 
 	@AfterTest
 	public void afterTest() {
-		driver.quit();
 
 	}
 }
