@@ -13,7 +13,7 @@ public class DateFormat {
 	 * @param format
 	 *            yyyy-MM-dd
 	 */
-	public String dateChange(Date date, String format) {
+	public static String dateChange(Date date, String format) {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
 		format = sdf.format(date);
 		return format;
@@ -25,7 +25,7 @@ public class DateFormat {
 	 * @param days
 	 * @return Date
 	 */
-	public Date addDays(int days) {
+	public static Date addDays(int days) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.DAY_OF_MONTH, days);
 		return calendar.getTime();
@@ -37,7 +37,7 @@ public class DateFormat {
 	 * @param seconds
 	 * @return
 	 */
-	public Date addSeconds(int seconds) {
+	public static Date addSeconds(int seconds) {
 		Calendar calendar = Calendar.getInstance();
 		calendar.add(Calendar.SECOND, seconds);
 		return calendar.getTime();
