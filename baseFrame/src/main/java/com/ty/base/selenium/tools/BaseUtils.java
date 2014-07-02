@@ -52,6 +52,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Strings;
+import com.ty.base.tools.SystemInfo;
 
 /**
  * 
@@ -76,13 +77,63 @@ public class BaseUtils {
 
 	public Logger logger = Logger.getLogger(BaseUtils.class); // this
 
+	/**
+	 * 
+	 * @return system name
+	 */
+	public String getOSName() {
+		return System.getProperty("os.name");
+	}
+
 	public FirefoxDriver initializeFirefoxDriver() {
 		return new FirefoxDriver();
 	}
 
+	/**
+	 * Mac OS
+	 * 
+	 * https://support.mozilla.org/zh-CN/kb/%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7
+	 * %E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6
+	 * 
+	 * 1.完全退出Firefox
+	 * 
+	 * 2.导航到 /Applications/Utilities，打开终端应用程序。
+	 * 
+	 * 3.在终端应用程序中输入: /Applications/Firefox.app/Contents/MacOS/firefox-bin -p
+	 * 
+	 * Windows
+	 * 
+	 * 1.完全退出firefox
+	 * 
+	 * 2.https://support.mozilla.org/zh-CN/kb/%E5%A4%87%E4%BB%BD%E4%BD%A0%E7%9A%
+	 * 84%E4%BF%A1%E6%81%AF
+	 * 
+	 * 3.cmd + R
+	 * 
+	 * 4.firefox.exe -p
+	 * 
+	 * @return
+	 */
 	public FirefoxDriver initializeFirefoxDriverWithFirefoxProfile() {
-		FirefoxProfile firefoxProfile = new FirefoxProfile(new File(""));
-		return new FirefoxDriver();
+
+		String profilePath = verifyProfilePath();
+		FirefoxProfile firefoxProfile = new FirefoxProfile(
+				new File(profilePath));
+		return new FirefoxDriver(firefoxProfile);
+	}
+
+	private String verifyProfilePath() {
+		SystemInfo systemInfo = new SystemInfo();
+		String osName = systemInfo.getOSName();
+		String profilePath = "";
+		if (osName.equals("Windows 7")) {
+			profilePath = "C:/Users/hantong/AppData/Roaming/Mozilla/Firefox/Profiles/b2t404bv.default";
+		} else if (osName.equals("Windows 8")) {
+			profilePath = "";
+		} else if (osName.equals("Mac OS X")) {
+			profilePath = "/Users/hanyang/Library/Application Support/Firefox/Profiles/q15f9cns.default";
+		}
+		return profilePath;
 	}
 
 	public EventFiringWebDriver initializeEventFiringWebDriver() {
@@ -93,8 +144,11 @@ public class BaseUtils {
 	}
 
 	public EventFiringWebDriver initializeEventFiringWebDriverWithProfile() {
-		FirefoxDriver driver = new FirefoxDriver();
-		FirefoxProfile firefoxProfile = new FirefoxProfile(new File(""));
+
+		String profilePath = verifyProfilePath();
+		FirefoxProfile firefoxProfile = new FirefoxProfile(
+				new File(profilePath));
+		FirefoxDriver driver = new FirefoxDriver(firefoxProfile);
 		EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);
 		MyWebDriverListener myListener = new MyWebDriverListener();
 		return eventDriver.register(myListener);
@@ -518,6 +572,7 @@ public class BaseUtils {
 		return elements;
 
 	}
+
 	//
 	// /**
 	// *
@@ -543,6 +598,7 @@ public class BaseUtils {
 		// highLight(driver, element);
 		return element;
 	}
+
 	//
 	// /**
 	// *
