@@ -182,7 +182,7 @@ public class BaseUtils {
 	 * @return the first WebElement
 	 * 
 	 */
-	public WebElement getWebElement(WebDriver driver, By by) {
+	public WebElement getElement(WebDriver driver, By by) {
 		WebElement webElement = driver.findElement(by);
 		highLight(driver, webElement);
 		return webElement;
