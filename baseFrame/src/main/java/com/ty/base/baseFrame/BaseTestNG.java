@@ -6,36 +6,43 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class BaseTestNG {
 
-	@Test
-	public void testMethod() {
-	}
+	 @Test(dataProvider = "dp")
+	  public void f(Integer n, String s) {
+	  }
+	  @BeforeMethod
+	  public void beforeMethod() {
+	  }
 
-	@BeforeMethod
-	public void beforeMethod() {
-	}
+	  @AfterMethod
+	  public void afterMethod() {
+	  }
 
-	@AfterMethod
-	public void afterMethod() {
-	}
 
-	@BeforeClass
-	public void beforeClass() {
-	}
+	  @DataProvider
+	  public Object[][] dp() {
+	    return new Object[][] {
+	      new Object[] { 1, "a" },
+	      new Object[] { 2, "b" },
+	    };
+	  }
+	  @BeforeClass
+	  public void beforeClass() {
+	  }
 
-	@AfterClass
-	public void afterClass() {
-	}
+	  @AfterClass
+	  public void afterClass() {
+	  }
 
-	@BeforeTest
-	public void beforeTest() {
-	}
+	  @BeforeTest
+	  public void beforeTest() {
+	  }
 
-	@AfterTest
-	public void afterTest() {
-
-	}
+	  @AfterTest
+	  public void afterTest() {
+	  }
 }
