@@ -19,7 +19,6 @@ package com.ty.base.selenium.tools;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
@@ -29,6 +28,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
+
+import com.ty.base.tools.DateFormat;
 
 public class MyWebDriverListener implements WebDriverEventListener {
 
@@ -78,7 +79,7 @@ public class MyWebDriverListener implements WebDriverEventListener {
 	@Override
 	public void beforeClickOn(WebElement element, WebDriver driver) {
 		System.out.println(" listener beforeClickOn");
-		
+
 	}
 
 	@Override
@@ -111,28 +112,23 @@ public class MyWebDriverListener implements WebDriverEventListener {
 
 	@Override
 	public void onException(Throwable throwable, WebDriver driver) {
-		try {
-			new BaseUtils().screenShort(driver, "");
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-		Date date = new Date();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(
+		String dateString = DateFormat.dateChange(new Date(),
 				"yyyy-mm-dd hh-mm-ss");
-		String dateString = simpleDateFormat.format(date);
 		try {
 			// 获取当前截图
 			File scrFile = ((TakesScreenshot) driver)
 					.getScreenshotAs(OutputType.FILE);
 			// 创建图片文件
-			File screenShot = new File("E:/" + dateString + ".png");
+			File screenShot = new File("test-output/exception/" + dateString
+					+ ".png");
 			// 拷贝文件
 			FileUtils.copyFile(scrFile, screenShot);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		System.out.println("发生异常 : " + throwable.getMessage());
-		System.out.println("截图已保存至：E:/" + dateString + ".png");
+		System.out.println("截图已保存至：test-output/exception/" + dateString
+				+ ".png");
 	}
 
 }
