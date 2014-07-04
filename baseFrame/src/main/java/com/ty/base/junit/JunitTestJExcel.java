@@ -10,7 +10,12 @@ import jxl.read.biff.BiffException;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
+/**
+ * http://jexcelapi.sourceforge.net/
+ * 使用jexcelapi进行excel数据源的测试
+ * @author hanyang
+ *
+ */
 public class JunitTestJExcel {
 
 	@Test(dataProvider = "data1")
@@ -27,7 +32,7 @@ public class JunitTestJExcel {
 
 	}
 
-	public static String[][] getTableArray(String xlFilePath, String sheetName,
+	private static String[][] getTableArray(String xlFilePath, String sheetName,
 			String tableName) throws BiffException, IOException {
 
 		Workbook workbook = Workbook.getWorkbook(new File(xlFilePath));
