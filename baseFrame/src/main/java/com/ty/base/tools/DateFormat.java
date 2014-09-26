@@ -18,6 +18,13 @@ public class DateFormat {
 		format = sdf.format(date);
 		return format;
 	}
+	
+	
+	public static Date dateChange(String date) {
+		Calendar instance = Calendar.getInstance();
+		instance.set(1990, 12, 0);
+		return instance.getTime();
+	}
 
 	/**
 	 * calculate date the result is now add some days

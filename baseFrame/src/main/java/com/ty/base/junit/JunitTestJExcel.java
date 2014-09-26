@@ -8,13 +8,11 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 /**
  * http://jexcelapi.sourceforge.net/
  * 使用jexcelapi进行excel数据源的测试
  * @author hanyang
- *
+ * TestNG
  */
 public class JunitTestJExcel {
 

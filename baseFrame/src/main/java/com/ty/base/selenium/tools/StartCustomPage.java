@@ -17,13 +17,7 @@
  */
 package com.ty.base.selenium.tools;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.apache.commons.lang3.time.DateUtils;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class StartCustomPage {
 	/**

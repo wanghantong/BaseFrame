@@ -11,6 +11,6 @@ public class JunitTestXSSFExcel {
 
 	@Test
 	public void testWriteBySXSSF() throws FileNotFoundException, IOException {
-		POIXSSFExcel.writeBySXSSF("SXSSF1", null, null);
+		POIXSSFExcel.writeBySXSSF("XSSF1", null, null);
 	}
 }
