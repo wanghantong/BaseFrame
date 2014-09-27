@@ -1,0 +1,18 @@
+工厂方法之抽象工厂
+Car    interface
+abstract Mercedes implements Car   class
+abstract Volkswagen implements Car class
+
+Mercedes_GLK extends Mercedes
+Mercedes_S600 extends Mercedes
+
+Volkswagen_Passat extends Volkswagen
+
+-----factory-----
+abstract MercedesFactory
+abstract VolkswagenFactory
+
+VolkswagenCreater extends VolkswagenFactory
+MercedesCreater extends MercedesFactory
+在creater这里又补充了工厂方法的方式，采用泛型来实现
+

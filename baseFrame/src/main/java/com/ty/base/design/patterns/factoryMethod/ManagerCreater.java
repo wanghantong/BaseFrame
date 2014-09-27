@@ -1,6 +1,6 @@
 package com.ty.base.design.patterns.factoryMethod;
 
-public class ManagerCreater implements AbstractManagerCreater {
+public class ManagerCreater implements IManagerCreater {
 
 	@Override
 	public <T extends TeamManager> T createManager(Class<T> clazz) {
