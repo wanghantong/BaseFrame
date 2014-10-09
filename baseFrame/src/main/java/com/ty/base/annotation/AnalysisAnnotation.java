@@ -7,7 +7,18 @@ import java.beans.PropertyDescriptor;
 import java.lang.reflect.Method;
 
 import org.junit.Test;
+/**
+ * 
+ * <p>Title: AnalysisAnnotation</p>
 
+ * <p>Description: 解析自定义注解的类</p>
+
+ * <p>Company: </p> 
+
+ * @author : Dragon
+
+ * @date : 2014年10月9日
+ */
 public class AnalysisAnnotation {
 
 	public void analysis() throws Exception {
